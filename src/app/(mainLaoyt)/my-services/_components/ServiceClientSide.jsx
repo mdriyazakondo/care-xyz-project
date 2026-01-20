@@ -16,7 +16,7 @@ const ServiceClientSide = ({ initialServices }) => {
   const [filter, setFilter] = useState("All");
   const [sort, setSort] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const processedServices = useMemo(() => {
     let result = initialServices.filter((s) => {
@@ -114,17 +114,7 @@ const ServiceClientSide = ({ initialServices }) => {
                 {service.short_desc}
               </p>
 
-              <div className="space-y-2 mb-6 grow">
-                {service.features.slice(0, 2).map((f, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 text-[11px] font-bold text-foreground/70 uppercase tracking-tighter"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>{" "}
-                    {f}
-                  </div>
-                ))}
-              </div>
+              
 
               <div className="pt-4 border-t border-primary/5 flex items-center justify-between">
                 <div>

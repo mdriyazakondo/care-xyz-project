@@ -31,6 +31,25 @@ export const fetchServices = async ({
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch services");
-  return res.json(); 
+  return res.json();
 };
 
+export const createService = async (service) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/services`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(service),
+    });
+    if (!res.ok) {
+      throw new Error("Failed to create item");
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("createService Error:", error);
+    return { success: false, message: error.message };
+  }
+};
