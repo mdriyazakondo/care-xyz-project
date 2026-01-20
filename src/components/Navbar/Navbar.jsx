@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HiMenu, HiX, HiMoon, HiSun } from "react-icons/hi";
 import { FaHeartbeat } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -28,6 +30,16 @@ const Navbar = () => {
     }
   };
 
+  const isActive = (path) => pathname === path;
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "My Services", href: "/my-services" },
+    { name: "Contact", href: "/contact" },
+  ];
+
   return (
     <nav className="bg-nav backdrop-blur-md shadow-sm border-b border-primary/10 fixed w-full z-50 top-0">
       <div className="max-w-362.5 mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,13 +55,20 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden md:flex space-x-8 items-center">
-            {["Home", "Services", "About", "Contact"].map((item) => (
+            {navLinks.map((link) => (
               <Link
-                key={item}
-                href="/"
-                className="text-foreground/80 hover:text-primary font-bold transition-colors"
+                key={link.name}
+                href={link.href}
+                className={`font-bold transition-all duration-300 relative group ${
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-primary"
+                }`}
               >
-                {item}
+                {link.name}
+                {isActive(link.href) && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+                )}
               </Link>
             ))}
 
@@ -62,7 +81,7 @@ const Navbar = () => {
 
             <Link
               href="/book"
-              className="bg-secondary text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition-all"
+              className="bg-secondary text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-secondary/20"
             >
               Book Now
             </Link>
@@ -80,22 +99,34 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`md:hidden absolute w-full bg-background border-t border-primary/10 transition-all duration-300 ${isOpen ? "top-20 opacity-100" : "-top-125 opacity-0"}`}
+        className={`md:hidden absolute w-full bg-background border-t border-primary/10 transition-all duration-300 ${
+          isOpen
+            ? "top-20 opacity-100"
+            : "-top-125 opacity-0 pointer-events-none"
+        }`}
       >
         <div className="px-6 py-8 space-y-4">
-          {["Home", "Services", "About", "Contact"].map((item) => (
+          {navLinks.map((link) => (
             <Link
-              key={item}
-              href="/"
+              key={link.name}
+              href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-lg font-semibold border-b border-primary/5 pb-2"
+              className={`block text-lg font-bold border-b border-primary/5 pb-2 ${
+                isActive(link.href)
+                  ? "text-primary pl-2 border-l-4 border-primary"
+                  : "text-foreground"
+              }`}
             >
-              {item}
+              {link.name}
             </Link>
           ))}
-          <button className="w-full bg-secondary text-white py-4 rounded-xl font-bold">
+          <Link
+            href="/book"
+            onClick={() => setIsOpen(false)}
+            className="block text-center bg-secondary text-white py-4 rounded-xl font-bold"
+          >
             Book Now
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

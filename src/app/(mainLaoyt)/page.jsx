@@ -8,6 +8,7 @@ import Experience from "./_components/HomePage/Experience/Experience";
 import FAQ from "./_components/HomePage/FAQ/FAQ";
 import Testimonials from "./_components/HomePage/Testimonials/Testimonials";
 import ServiceCenter from "./_components/HomePage/ServiceCenter/ServiceCenter";
+import Stats from "./_components/HomePage/Stats/Stats";
 
 const HomePage = () => {
   return (
@@ -19,7 +20,8 @@ const HomePage = () => {
       <Experience />
       <Testimonials />
       <Tips />
-      <FAQ />
+      <Stats />
+      {/* <FAQ /> */}
       <ServiceCenter />
     </main>
   );
