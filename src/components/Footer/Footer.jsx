@@ -54,25 +54,21 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-4">
-              {[
-                "Home",
-                "About Us",
-                "Our Services",
-                "Caregivers",
-                "Contact",
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="text-amber-500 group-hover:translate-x-1 transition-transform">
-                      ›
-                    </span>{" "}
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {["Home", "about", "Our Services", "Caregivers", "Contact"].map(
+                (item) => (
+                  <li key={item}>
+                    <Link
+                      href={`/${item.toLowerCase()}`}
+                      className="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2 group"
+                    >
+                      <span className="text-amber-500 group-hover:translate-x-1 transition-transform">
+                        ›
+                      </span>{" "}
+                      {item}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 

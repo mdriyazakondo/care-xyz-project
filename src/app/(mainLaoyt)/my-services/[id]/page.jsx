@@ -24,7 +24,7 @@ const ServiceDetails = async ({ params }) => {
     <main className="bg-background min-h-screen pt-32 pb-20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
-          href="/services"
+          href="/my-services"
           className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all"
         >
           <FaArrowLeft /> Back to Services

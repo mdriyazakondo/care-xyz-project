@@ -34,11 +34,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
+    { name: " Services", href: "/my-services" },
     { name: "About", href: "/about" },
-    { name: "My Services", href: "/my-services" },
-    { name: "Add Service", href: "/add-service" },
     { name: "Contact", href: "/contact" },
+    { name: "Dashboard", href: "/dashboard/overview" },
   ];
 
   return (
