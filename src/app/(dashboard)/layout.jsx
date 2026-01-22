@@ -26,6 +26,11 @@ export default function DashboardLayout({ children }) {
       label: "Analytics",
       href: "/dashboard/analytics",
     },
+    {
+      icon: <PieChart size={20} />,
+      label: "My Booking",
+      href: "/dashboard/my-bookings",
+    },
     { icon: <Users size={20} />, label: "Team", href: "/dashboard/team" },
     {
       icon: <Settings size={20} />,

@@ -1,4 +1,4 @@
-"use client"; // usePathname use korar jonno client component hote hobe
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -10,11 +10,10 @@ import {
 } from "lucide-react";
 
 export default function Sidebar({ navLinks }) {
-  const pathname = usePathname(); // Bortoman URL path nibe
+  const pathname = usePathname();
 
   return (
     <>
-      {/* Desktop Sidebar */}
       <aside className="fixed inset-y-0 left-0 z-50 w-64 hidden lg:flex flex-col border-r-2 border-gray-200 dark:border-slate-800 bg-background">
         <div className="h-16 flex items-center px-6 border-b-2 border-gray-100 dark:border-slate-900">
           <Link href="/">

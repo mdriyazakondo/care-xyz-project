@@ -21,3 +21,20 @@ export const createBookings = async (service) => {
     return { success: false, message: error.message };
   }
 };
+
+export const getBookings = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/bookings", {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch bookings");
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Get booking error:", error);
+    return [];
+  }
+};
