@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+
 export const createBookings = async (service) => {
   try {
     const res = await fetch(`http://localhost:3000/api/bookings`, {
@@ -26,6 +28,7 @@ export const getBookings = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/bookings", {
       cache: "no-store",
+      next: { tags: ["bookings"] },
     });
 
     if (!res.ok) {
@@ -37,4 +40,15 @@ export const getBookings = async () => {
     console.error("Get booking error:", error);
     return [];
   }
+};
+
+export const BookingCanceled = async (id) => {
+  await fetch(`http://localhost:3000/api/bookings/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ status: "cancelled" }),
+  });
+  revalidateTag("bookings");
 };

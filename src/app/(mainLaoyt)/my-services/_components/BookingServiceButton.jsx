@@ -6,10 +6,27 @@ import { useState, useTransition } from "react";
 const BookingServiceButton = ({ service }) => {
   const [isPending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
+  const services = {
+    userId: service?._id,
+    title: service?.title,
+    slug: service?.slug,
+    category: service?.category,
+    price: service?.price,
+    unit: service?.unit,
+    rating: service?.rating,
+    reviews: service?.reviews,
+    image: service?.image,
+    short_desc: service?.short_desc,
+    long_desc: service?.long_desc,
+    features: service?.features,
+    availability: service?.availability,
+    date: new Date(),
+    status: service?.status,
+  };
 
   const handleBooking = () => {
     startTransition(async () => {
-      const result = await createBookings(service);
+      const result = await createBookings(services);
 
       if (result.success) {
         setMessage(" Booking successful!");
