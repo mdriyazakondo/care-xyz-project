@@ -3,9 +3,8 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Topbar({ pageTitle = "Overview" }) {
   return (
-    <header className="sticky top-0 z-40 h-16 w-full bg-background/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 px-4 md:px-6 flex items-center justify-between">
+    <header className="sticky top-0 z-40 h-16 w-full bg-background/80 backdrop-blur-md border-b-2 border-gray-200 dark:border-slate-800 px-4 md:px-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        {/* Mobile Menu Button */}
         <button className="lg:hidden p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg">
           <Menu size={24} />
         </button>

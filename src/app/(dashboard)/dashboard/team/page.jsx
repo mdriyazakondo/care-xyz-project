@@ -20,7 +20,7 @@ const teamMembers = [
     email: "arif@homecare.com",
     role: "Super Admin",
     status: "Active",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Arif",
+    avatar: "",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const teamMembers = [
     email: "sara@homecare.com",
     role: "Manager",
     status: "Active",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sara",
+    avatar: "",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const teamMembers = [
     email: "tanvir@homecare.com",
     role: "Editor",
     status: "Offline",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tanvir",
+    avatar: "",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const teamMembers = [
     email: "mehedi@homecare.com",
     role: "Support",
     status: "Active",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mehedi",
+    avatar: "",
   },
 ];
 

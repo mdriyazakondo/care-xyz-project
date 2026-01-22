@@ -21,7 +21,7 @@ const AddService = () => {
     watch,
   } = useForm({
     defaultValues: {
-      features: ["", "", ""], // Default 3ta field
+      features: ["", "", ""],
       category: "Medical",
       availability: "24/7",
       rating: 5.0,
@@ -35,10 +35,7 @@ const AddService = () => {
   });
 
   const onSubmit = async (data) => {
-    // Empty features filter kora
     data.features = data.features.filter((f) => f.trim() !== "");
-
-    // Slug generate kora (Jodi backend-e na hoy)
     data.slug = data.title
       .toLowerCase()
       .replace(/ /g, "-")

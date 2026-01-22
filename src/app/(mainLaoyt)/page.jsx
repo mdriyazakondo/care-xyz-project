@@ -22,7 +22,7 @@ const HomePage = () => {
       <Tips />
       <Stats />
       {/* <FAQ /> */}
-      <ServiceCenter />
+      {/* <ServiceCenter /> */}
     </main>
   );
 };

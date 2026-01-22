@@ -8,6 +8,7 @@ import {
   FaArrowLeft,
 } from "react-icons/fa";
 import Link from "next/link";
+import BookingServiceButton from "../_components/BookingServiceButton";
 
 const ServiceDetails = async ({ params }) => {
   const { id } = await params;
@@ -111,11 +112,7 @@ const ServiceDetails = async ({ params }) => {
                 </div>
               </div>
             </div>
-
-            {/* Action Button */}
-            <button className="w-full bg-primary text-white py-6 rounded-4xl font-black text-xl hover:bg-primary/90 transition-all shadow-2xl shadow-primary/30 active:scale-95">
-              BOOK THIS SERVICE NOW
-            </button>
+            <BookingServiceButton service={service} />
           </div>
         </div>
       </div>
