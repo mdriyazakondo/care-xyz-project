@@ -14,13 +14,13 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
+      <Stats />
       <Services />
       <About />
       <Doctors />
       <Experience />
       <Testimonials />
       <Tips />
-      <Stats />
       {/* <FAQ /> */}
       {/* <ServiceCenter /> */}
     </main>

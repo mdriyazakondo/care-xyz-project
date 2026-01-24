@@ -80,10 +80,10 @@ const Navbar = () => {
             </button>
 
             <Link
-              href="/book"
+              href="/sign-in"
               className="bg-secondary text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-secondary/20"
             >
-              Book Now
+              Sign In
             </Link>
           </div>
 
@@ -121,11 +121,11 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/book"
+            href="/sign-in"
             onClick={() => setIsOpen(false)}
             className="block text-center bg-secondary text-white py-4 rounded-xl font-bold"
           >
-            Book Now
+            sign In
           </Link>
         </div>
       </div>
