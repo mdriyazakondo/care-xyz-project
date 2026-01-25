@@ -1,7 +1,7 @@
 import { getBookings } from "@/app/_actions/bookingActions";
 import Image from "next/image";
 import BookingCancel from "./_components/BookingCancel";
-
+export const dynamic = "force-dynamic";
 const BookingList = async () => {
   const data = await getBookings();
   const bookings = data?.bookings || [];
@@ -26,7 +26,7 @@ const BookingList = async () => {
               <th className="px-4 py-3 font-semibold text-gray-900">Price</th>
               <th className="px-4 py-3 font-semibold text-gray-900">Date</th>
               <th className="px-4 py-3 font-semibold text-gray-900">Status</th>
-              <th className="px-4 py-3 font-semibold text-gray-900 text-right">
+              <th className="px-4 py-3 font-semibold text-gray-900 text-center ">
                 Actions
               </th>
             </tr>
@@ -71,13 +71,26 @@ const BookingList = async () => {
                     {booking.status}
                   </span>
                 </td>
-                <td className="px-4 py-4">
-                  <div className="flex items-center justify-end gap-2">
-                    <button className="px-3 py-1 text-xs font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
-                      Pay
-                    </button>
-                    <BookingCancel id={booking._id} booking={booking} />
-                  </div>
+                <td className="px-4 py-4 text-center">
+                  {booking.status === "cancelled" ? (
+                    <p
+                      className={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+                        booking.status === "cancelled"
+                          ? "bg-red-100 text-red-600 hover:bg-red-200"
+                          : "bg-green-100 text-green-600 hover:bg-green-200"
+                      }
+                          `}
+                    >
+                      {booking.status}
+                    </p>
+                  ) : (
+                    <div className="flex items-center justify-end gap-2">
+                      <button className="px-3 py-1 text-xs font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
+                        Pay
+                      </button>
+                      <BookingCancel id={booking._id} booking={booking} />
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}

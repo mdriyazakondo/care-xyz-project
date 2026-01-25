@@ -1,6 +1,6 @@
 import { getAllServices } from "@/service/service.service";
 import ServiceClientSide from "./_components/ServiceClientSide";
-
+export const dynamic = "force-dynamic";
 const MyService = async () => {
   const allService = await getAllServices();
 
