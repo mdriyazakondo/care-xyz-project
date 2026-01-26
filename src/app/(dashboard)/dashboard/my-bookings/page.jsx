@@ -17,16 +17,16 @@ const BookingList = async () => {
         <table className="min-w-full divide-y divide-gray-200 bg-white text-sm text-left">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-4 py-3 font-semibold text-gray-900">
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900">
                 Service Info
               </th>
-              <th className="px-4 py-3 font-semibold text-gray-900">
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900">
                 Category
               </th>
-              <th className="px-4 py-3 font-semibold text-gray-900">Price</th>
-              <th className="px-4 py-3 font-semibold text-gray-900">Date</th>
-              <th className="px-4 py-3 font-semibold text-gray-900">Status</th>
-              <th className="px-4 py-3 font-semibold text-gray-900 text-center ">
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900">Price</th>
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900">Date</th>
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900">Status</th>
+              <th className="px-4 uppercase py-3 font-semibold text-gray-900 text-center ">
                 Actions
               </th>
             </tr>
